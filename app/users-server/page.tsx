@@ -6,7 +6,10 @@ type User = {
 }
 
 export default async function Users() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/users")
+    //Purposely delay
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const res = await fetch("https://jsonplaceholder.typicode.com/users1")
+    if(!res.ok) return <div>Error</div> //could not make Error.tsx load automatically like the Loading.tsx component does.
     const users = await res.json()
 
     return (
