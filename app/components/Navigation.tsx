@@ -28,7 +28,12 @@ const links = [
         "id" : 4,
         "name": "User Clients",
         "href" : "/users-client"
-    }
+    },
+    {
+        "id" : 5,
+        "name": "User Server",
+        "href" : "/users-server"
+    },
 ];
 export default function Navigation() {
     const pathname = usePathname()
