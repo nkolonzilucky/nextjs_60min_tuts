@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type link = {
     "id": number,
@@ -23,9 +25,11 @@ const links = [
         "href":"/products/1"}
 ];
 export default function Navigation() {
+    const pathname = usePathname()
+    console.log(pathname)
     return (
         <nav className="text-center p-6 bg-slate-800">
-            {links.map((link: link) => <Link key={link.id} href={link.href} className="mr-4 text-blue-500">{link.name}</Link>)}
+            {links.map((link: link) => <Link key={link.id} href={link.href} className={pathname === link.href ? "font-bold mr-4" : "mr-4 text-blue-500"}>{link.name}</Link>)}
         </nav>
     );
 
