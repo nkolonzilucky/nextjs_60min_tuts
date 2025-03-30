@@ -22,7 +22,13 @@ const links = [
     {
         "id": 3,
         "name":"Product", 
-        "href":"/products/1"}
+        "href":"/products/1"
+    },
+    {
+        "id" : 4,
+        "name": "User Clients",
+        "href" : "/users-client"
+    }
 ];
 export default function Navigation() {
     const pathname = usePathname()
