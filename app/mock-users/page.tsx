@@ -24,7 +24,7 @@ export default async function MockUsers(){
             body: JSON.stringify({ name })
         })
         const newUser = await res.json()
-        revalidatePath('mock-users')
+        revalidatePath('/mock-users')
         console.log(newUser);
     }
 
