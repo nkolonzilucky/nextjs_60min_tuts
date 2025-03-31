@@ -1,5 +1,5 @@
 "use client"
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -47,8 +47,12 @@ export default function Navigation() {
     return (
         <nav className="flex items-center justify-center p-6 bg-slate-800">
             {links.map((link: link) => <Link key={link.id} href={link.href} className={pathname === link.href ? "font-bold mr-4" : "mr-4 text-blue-500"}>{link.name}</Link>)}
-            <SignInButton mode="modal" className="bg-blue-500 px-6 py-2 rounded-lg hover:bg-blue-400 active:bg-blue-200 mr-4" />
-            <UserButton />
+            <SignedOut>
+                <SignInButton mode="modal" className="bg-blue-500 px-6 py-2 rounded-lg hover:bg-blue-400 active:bg-blue-200 mr-4" />
+            </SignedOut>
+            <SignedIn>
+                <UserButton />
+            </SignedIn>
         </nav>
     );
 
